@@ -24,7 +24,7 @@
   ·
   <a href="#使い方">使い方</a>
   ·
-  <a href="https://github.com/takamiya1021/colab-status/issues">不具合の報告・要望</a>
+  <a href="https://github.com/HiroakiYoshikura/colab-status/issues">不具合の報告・要望</a>
 </p>
 
 </div>
@@ -79,7 +79,7 @@ Colab で画像や動画を焼いている間は、どこまで進んだか、VM
 Claude Code のターミナルの入力欄で:
 
 ```
-/plugin install colab-status --marketplace takamiya1021/colab-status
+/plugin install colab-status --marketplace HiroakiYoshikura/colab-status
 ```
 
 `Add marketplace?` と聞かれたら `y`、入れる範囲（scope）は user のまま Enter で入ります。
@@ -90,7 +90,7 @@ Claude Code のターミナルの入力欄で:
 シェルからなら:
 
 ```bash
-claude plugin install colab-status --marketplace takamiya1021/colab-status
+claude plugin install colab-status --marketplace HiroakiYoshikura/colab-status
 ```
 
 外す時は:
@@ -161,7 +161,7 @@ docs/screenshot.png        # README の画面
 
 ## 不具合の報告・要望
 
-[Issues](https://github.com/takamiya1021/colab-status/issues) へどうぞ。表示がおかしい時は、`ps -eo pid=,args=` のうち `chain_` を含む行と、`OUT/chain.log` の先頭の数行を添えてもらえると助かります。
+[Issues](https://github.com/HiroakiYoshikura/colab-status/issues) へどうぞ。表示がおかしい時は、`ps -eo pid=,args=` のうち `chain_` を含む行と、`OUT/chain.log` の先頭の数行を添えてもらえると助かります。
 
 ## 利用条件
 
