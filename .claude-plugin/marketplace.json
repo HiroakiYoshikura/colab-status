@@ -1,0 +1,5 @@
+{
+  "name": "colab-status-mod",
+  "owner": { "name": "takamiya1021" },
+  "plugins": [{ "name": "colab-status", "source": "./src/colab-status" }]
+}

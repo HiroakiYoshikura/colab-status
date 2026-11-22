@@ -1,0 +1,6 @@
+{
+  "name": "colab-status",
+  "version": "0.2.1",
+  "description": "While a Colab chain (run-h3-image / run-h3-video / run-minimax-music) is running, shows its progress line, the minutes since the VM came up and a yen estimate at the lower right of the prompt. Draws nothing when no chain runs",
+  "types": "./types/index.d.ts"
+}
