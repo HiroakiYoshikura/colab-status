@@ -175,5 +175,5 @@ MIT No Attribution（MIT-0）です。自由に使ってかまいません。改
 [ts-shield]: https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white
 [ts-url]: https://www.typescriptlang.org/
 [platform-shield]: https://img.shields.io/badge/Linux_%2F_WSL2-FCC624?style=for-the-badge&logo=linux&logoColor=black
-[version-shield]: https://img.shields.io/badge/version-0.2.1-2ea44f?style=for-the-badge
+[version-shield]: https://img.shields.io/badge/version-0.2.2-2ea44f?style=for-the-badge
 [license-shield]: https://img.shields.io/badge/license-MIT--0-blue?style=for-the-badge

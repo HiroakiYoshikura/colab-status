@@ -24,7 +24,8 @@ KINDS = [
 # A100 80GB high-mem の実消費（run-h3-image の SKILL.md・ナレッジ unit-prices.md と同じ値）
 CU_PER_HOUR_A100 = 6.55
 YEN_PER_CU = 11.79
-VM_UP = re.compile(r"^(\d\d:\d\d:\d\d) \[chain\] new rc=0", re.M)
+# 新しく VM を立てた時は「new rc=0」、立っている VM を使い回す時（連続焼き）は「既存セッション … を再利用」が出る
+VM_UP = re.compile(r"^(\d\d:\d\d:\d\d) \[chain\] (?:new rc=0|.*既存セッション \S+ を再利用)", re.M)
 
 
 def chains():
@@ -77,13 +78,18 @@ def vm_sec(out):
 
 def main():
     found = []
-    for pid, kind, bar in chains():
+    seen = set()
+    # 鎖は中でサブシェルを作り、どれも同じ cmdline になる。1 本の鎖が何行にも出ないよう、OUT ごとに 1 つだけ数える
+    for pid, kind, bar in sorted(chains()):
         env = env_of(pid)
         out = env.get("OUT", "")
-        if not out:
+        if not out or out.rstrip("/") in seen:
             continue
+        seen.add(out.rstrip("/"))
         job = env.get("JOB", "")
         name = os.path.splitext(os.path.basename(job))[0] if job else os.path.basename(out.rstrip("/"))
+        if job and name == "job":  # jobs/<名前>/job.json の形では、フォルダ名がジョブの名前
+            name = os.path.basename(os.path.dirname(job))
         line = ""
         try:
             r = subprocess.run([sys.executable, "-I", bar, out, "--pid", str(pid), "--once"],
